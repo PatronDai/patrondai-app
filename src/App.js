@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import ethers from "ethers";
+import { ethers } from "ethers";
 import Torus from "@toruslabs/torus-embed";
 import NavBar from "./components/organisms/NavBar";
 
