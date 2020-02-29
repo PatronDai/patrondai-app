@@ -2,13 +2,35 @@
 
 body {
   margin: 0;
-  background-color: #eaebeb;
+
   font-family: Spartan, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+  background-color: #eaebeb !important;
+}
+
+.App {
+  text-align: center;
+  background-color: #eaebeb;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #eaebeb;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #eaebeb;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #fefeff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
 }

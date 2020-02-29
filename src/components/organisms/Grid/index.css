@@ -1,0 +1,18 @@
+.grid-wrapper {
+  width: 100%;
+  margin-top: 5vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.grid {
+  margin: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+}
+
+.grid-wrapper > h1 {
+  margin-bottom: 5vh;
+}

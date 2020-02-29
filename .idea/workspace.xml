@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72918edb-a9e0-45a5-a677-282e33ebed10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/components/organisms/Grid/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/components/organisms/Grid/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/components/organisms/Layout/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/components/organisms/Project/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/components/organisms/Project/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/components/organisms/Header/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/organisms/Header/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/organisms/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/organisms/Header/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/organisms/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/organisms/Header/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/contexts/EthereumContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/contexts/EthereumContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582998458143</updated>
       <workItem from="1582998459911" duration="1175000" />
-      <workItem from="1582999670097" duration="2510000" />
+      <workItem from="1582999670097" duration="18796000" />
     </task>
     <servers />
   </component>
@@ -66,13 +76,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583004231332">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1583004231332" />
     <state x="629" y="338" key="EditFileWatcherDialog" timestamp="1582999241858">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="629" y="338" key="EditFileWatcherDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1582999241858" />
-    <state x="461" y="202" key="SettingsEditor" timestamp="1583001155444">
+    <state x="461" y="202" key="SettingsEditor" timestamp="1583004080876">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="461" y="202" key="SettingsEditor/0.40.1920.1040@0.40.1920.1040" timestamp="1583001155444" />
+    <state x="461" y="202" key="SettingsEditor/0.40.1920.1040@0.40.1920.1040" timestamp="1583004080876" />
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1583011649655">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup/0.40.1920.1040@0.40.1920.1040" timestamp="1583011649655" />
   </component>
 </project>

@@ -3,11 +3,14 @@ import "./index.css";
 import HeaderMode from "../../../contexts/headerMode";
 import logo from "../../../resources/logo.png";
 import EthereumContext from "../../../contexts/EthereumContext";
+import { useHistory } from "react-router-dom";
 
 export default function Header({ money, login }) {
   let header = HeaderMode.useContainer();
+  let history = useHistory();
   let changeMode = e => {
     header.changeMode(e.target.id);
+    history.push("/");
   };
   let add = e => {
     console.log("add");
