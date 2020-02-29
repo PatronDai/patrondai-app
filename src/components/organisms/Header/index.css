@@ -68,10 +68,14 @@
     font-weight: 600;
     font-size: large;
     margin-right: 2vw;
+    color: black;
+    z-index: 99;
   }
   #logout {
     font-weight: 600;
     font-size: large;
+    color: black;
+    z-index: 99;
   }
 }
 
@@ -87,10 +91,14 @@
     font-weight: 400;
     font-size: medium;
     margin-right: 2vw;
+    color: black;
+    z-index: 99;
   }
 
   #logout {
     font-weight: 400;
     font-size: medium;
+    color: black;
+    z-index: 99;
   }
 }
