@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72918edb-a9e0-45a5-a677-282e33ebed10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../src/contexts/headerMode.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582998458143</updated>
       <workItem from="1582998459911" duration="1175000" />
-      <workItem from="1582999670097" duration="1500000" />
+      <workItem from="1582999670097" duration="1590000" />
     </task>
     <servers />
   </component>
