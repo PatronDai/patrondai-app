@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^7.1.2",
     "@toruslabs/torus-embed": "^1.1.0",
     "ethers": "^4.0.45",
+    "prettier": "^1.19.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "unstated-next": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

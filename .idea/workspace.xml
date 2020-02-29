@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="72918edb-a9e0-45a5-a677-282e33ebed10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/contexts/headerMode.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Code\Projects\patrondai-app\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YUY5nfdpyJXRZrce0ixjEh3znu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Code\Projects\patrondai-app\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Code\Projects\patrondai-app\src\components\organisms" />
+      <recent name="C:\Code\Projects\patrondai-app\src\contexts" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72918edb-a9e0-45a5-a677-282e33ebed10" name="Default Changelist" comment="" />
+      <created>1582998458143</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582998458143</updated>
+      <workItem from="1582998459911" duration="1175000" />
+      <workItem from="1582999670097" duration="1500000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="629" y="338" key="EditFileWatcherDialog" timestamp="1582999241858">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="629" y="338" key="EditFileWatcherDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1582999241858" />
+    <state x="461" y="202" key="SettingsEditor" timestamp="1583001155444">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="461" y="202" key="SettingsEditor/0.40.1920.1040@0.40.1920.1040" timestamp="1583001155444" />
+  </component>
+</project>
