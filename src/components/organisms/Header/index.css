@@ -69,6 +69,10 @@
     font-size: large;
     margin-right: 2vw;
   }
+  #logout {
+    font-weight: 600;
+    font-size: large;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -83,5 +87,10 @@
     font-weight: 400;
     font-size: medium;
     margin-right: 2vw;
+  }
+
+  #logout {
+    font-weight: 400;
+    font-size: medium;
   }
 }

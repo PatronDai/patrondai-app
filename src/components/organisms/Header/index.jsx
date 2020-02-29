@@ -63,7 +63,7 @@ export default function Header({ money, login }) {
                   alt="DAI"
                 />
                 <div>{money}</div>
-                <div>Logout</div>
+                <div id="logout">Logout</div>
               </div>
             ) : (
               <div id="login" onClick={login}>
