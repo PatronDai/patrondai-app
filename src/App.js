@@ -6,13 +6,16 @@ import ethers from "ethers";
 import Torus from "@toruslabs/torus-embed";
 import NavBar from "./components/organisms/NavBar";
 
+import EthereumContext from "./contexts/EthereumContext";
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       addresses: [],
       initialized: false,
-      loginInProgress: false
+      loginInProgress: false,
+      provider: null
     };
   }
   async componentDidMount() {
@@ -28,36 +31,45 @@ class App extends React.Component {
     const { addresses, initialized, loginInProgress } = this.state;
     return (
       <div className="App">
-        <NavBar />
-        {initialized ? (
-          <div>
-            {loginInProgress ? (
-              <div>Logging in...</div>
-            ) : (
-              <div>
-                {!addresses.length ? (
-                  <button
-                    onClick={async () => {
-                      try {
-                        this.setState({ loginInProgress: true });
-                        this.setState({ addresses: await this.torus.login() });
-                        this.setState({ loginInProgress: false });
-                      } catch (error) {
-                        console.error(error);
-                      }
-                    }}
-                  >
-                    Login
-                  </button>
-                ) : (
-                  addresses
-                )}
-              </div>
-            )}
-          </div>
-        ) : (
-          <div>Wait for it...</div>
-        )}
+        <EthereumContext.Provider value={this.state}>
+          <NavBar />
+          {initialized ? (
+            <div>
+              {loginInProgress ? (
+                <div>Logging in...</div>
+              ) : (
+                <div>
+                  {!addresses.length ? (
+                    <button
+                      onClick={async () => {
+                        try {
+                          this.setState({ loginInProgress: true });
+                          this.setState({
+                            addresses: await this.torus.login()
+                          });
+                          this.setState({
+                            provider: new ethers.providers.Provider(
+                              this.torus.provider
+                            )
+                          });
+                          this.setState({ loginInProgress: false });
+                        } catch (error) {
+                          console.error(error);
+                        }
+                      }}
+                    >
+                      Login
+                    </button>
+                  ) : (
+                    addresses
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div>Wait for it...</div>
+          )}
+        </EthereumContext.Provider>
       </div>
     );
   }
