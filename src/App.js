@@ -32,24 +32,25 @@ class App extends React.Component {
     return (
       <div className="App">
         <HeaderMode.Provider>
-        <EthereumContext.Provider value={this.state}>
-          <Header login={async () => {
-            try {
-              this.setState({ loginInProgress: true });
-              this.setState({
-                addresses: await this.torus.login()
-              });
-              this.setState({
-                provider: new ethers.providers.Provider(
-                    this.torus.provider
-                )
-              });
-              this.setState({ loginInProgress: false });
-            } catch (error) {
-              console.error(error);
-            }
-          }}/>
-        </EthereumContext.Provider>
+          <EthereumContext.Provider value={this.state}>
+            <Header
+              money={9999}
+              login={async () => {
+                try {
+                  this.setState({ loginInProgress: true });
+                  this.setState({
+                    addresses: await this.torus.login()
+                  });
+                  this.setState({
+                    provider: new ethers.providers.Provider(this.torus.provider)
+                  });
+                  this.setState({ loginInProgress: false });
+                } catch (error) {
+                  console.error(error);
+                }
+              }}
+            />
+          </EthereumContext.Provider>
         </HeaderMode.Provider>
       </div>
     );

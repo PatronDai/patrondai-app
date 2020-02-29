@@ -72,10 +72,12 @@
     z-index: 99;
   }
   #logout {
+    border-left: black solid 2px;
     font-weight: 600;
     font-size: large;
     color: black;
     z-index: 99;
+    padding-left: 1vw;
   }
 }
 
