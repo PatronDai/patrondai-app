@@ -4,6 +4,7 @@ import "./App.css";
 
 import ethers from "ethers";
 import Torus from "@toruslabs/torus-embed";
+import NavBar from "./components/organisms/NavBar";
 
 class App extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class App extends React.Component {
     const { addresses, initialized, loginInProgress } = this.state;
     return (
       <div className="App">
+        <NavBar />
         {initialized ? (
           <div>
             {loginInProgress ? (
