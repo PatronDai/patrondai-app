@@ -5,24 +5,9 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import EthereumContext from "../../../contexts/EthereumContext";
 import patronDaiCampaign from "patrondai-contracts/build/contracts/PatronDaiCampaign";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardImg,
-  CardBody,
-  CardFooter,
-  Button
-} from "shards-react";
+import { Card, CardTitle, CardImg, CardBody, CardFooter } from "shards-react";
 import { ethers } from "ethers";
 import { back } from "../../swal";
-
-const list = [
-  { title: "AAAcd sdccds", id: 999 },
-  { title: "dhibcibhsd chsdjhsbd", id: 38388 },
-  { title: "KCNMsjdkcdnns sj sn", id: 4244 },
-  { title: "cjndjkb asbjkb", id: 262666 }
-];
 
 const my = [
   {
