@@ -1,4 +1,6 @@
 import React from "react";
+import patronDaiCampaignsRegistry from "patrondai-contracts/build/contracts/PatronDaiCampaignsRegistry";
+import rinkebyBuild from "patrondai-contracts/.openzeppelin/rinkeby";
 
 import { ethers } from "ethers";
 import Torus from "@toruslabs/torus-embed";
@@ -38,8 +40,20 @@ class Layout extends React.Component {
                 this.setState({
                   addresses: await this.torus.login()
                 });
+                const provider = new ethers.providers.Web3Provider(
+                  this.torus.provider
+                ).getSigner(0);
+                const contract = new ethers.Contract(
+                  rinkebyBuild.proxies[
+                    "squirvels-contracts/PatronDaiCampaignsRegistry"
+                  ][0].address,
+                  patronDaiCampaignsRegistry.abi,
+                  provider
+                );
+                window.x = contract;
                 this.setState({
-                  provider: new ethers.providers.Provider(this.torus.provider)
+                  provider,
+                  contract
                 });
                 this.setState({ loginInProgress: false });
               } catch (error) {

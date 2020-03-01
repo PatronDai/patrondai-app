@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { Add, ChevronRight } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-
+import EthereumContext from "../../../contexts/EthereumContext";
+import patronDaiCampaign from "patrondai-contracts/build/contracts/PatronDaiCampaign";
 import {
   Card,
   CardHeader,
@@ -13,6 +14,7 @@ import {
   CardFooter,
   Button
 } from "shards-react";
+import { ethers } from "ethers";
 
 const list = [
   { title: "AAAcd sdccds", id: 999 },
@@ -21,26 +23,80 @@ const list = [
   { title: "cjndjkb asbjkb", id: 262666 }
 ];
 
-const my = [{ title: "AAAcd sdccds", id: 999 }];
+const my = [
+  {
+    title: "Puppies need You!",
+    url:
+      "https://www.hearingdogs.org.uk/globalassets/blog/blog-images/gwens-first-eight-weeks/977x550-hearing-dog-sponsor-puppy-gwen.jpg",
+    description: "Show some love to the puppies, you wont spend a penny!",
+    id: 999
+  }
+];
 
 export function Grid() {
+  let ethereum = React.useContext(EthereumContext);
+  let [campaigns, setCampaigns] = useState([]);
+
+  useEffect(() => {
+    async function getCampaigns() {
+      let count =
+        ethereum.contract && (await ethereum.contract.getCampaignsCount());
+      let campaigns2 = campaigns;
+      for (let i = 0; i < count; i++) {
+        const address = await ethereum.contract.getCampaign(i);
+        let info = await fetch(
+          "https://centralization.sucks.af/api/campaign/" + address
+        ).then(r => r.json());
+        campaigns2 = [
+          ...campaigns2,
+          {
+            address,
+            contract: new ethers.Contract(
+              address,
+              patronDaiCampaign.abi,
+              ethereum.provider
+            ),
+            info: info.data
+          }
+        ];
+        setCampaigns([...campaigns2]);
+      }
+    }
+    getCampaigns();
+  }, [ethereum]);
+  console.log(campaigns);
   return (
     <div className="grid-wrapper">
       <h1>Projects</h1>
       <div className="grid">
-        {list.map((val, idx) => (
+        {campaigns.map((val, idx) => (
           <Card style={{ maxWidth: "400px" }} key={idx}>
-            <CardImg src="https://place-hold.it/300x200" />
+            <CardImg
+              src={
+                val.info &&
+                (val.info.image
+                  ? val.info.image
+                  : "https://cdn.pixabay.com/photo/2017/10/24/07/12/question-mark-2883630_960_720.jpg")
+              }
+              style={{ objectFit: "cover", maxHeight: "40vh" }}
+            />
             <CardBody>
-              <CardTitle>{val.title}</CardTitle>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <CardTitle>
+                {val.info && (val.info.title ? val.info.title : "No title")}
+              </CardTitle>
+              <p>
+                {val.info &&
+                  (val.info.description
+                    ? val.info.description
+                    : "No description")}
+              </p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>Back</div>
-                <Link to={"/project/" + val.id}>More</Link>
+                <Link to={"/project/" + val.address}>More</Link>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Add />
-                <Link to={"/project/" + val.id}>
+                <Link to={"/project/" + val.address}>
                   <ChevronRight />
                 </Link>
               </div>
@@ -54,6 +110,8 @@ export function Grid() {
           </Card>
         ))}
       </div>
+
+      {campaigns.length < 1 && <div>Loading ...</div>}
     </div>
   );
 }
@@ -69,10 +127,13 @@ export function CreatorGrid() {
       <div className="grid">
         {my.map((val, idx) => (
           <Card style={{ maxWidth: "400px" }} key={idx}>
-            <CardImg src="https://place-hold.it/300x200" />
+            <CardImg
+              src={val.url}
+              style={{ objectFit: "cover", maxHeight: "40vh" }}
+            />
             <CardBody>
               <CardTitle>{val.title}</CardTitle>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>{val.description}</p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>Back</div>
                 <Link to={"/project/" + val.id}>More</Link>

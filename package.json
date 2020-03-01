@@ -10,12 +10,14 @@
     "@testing-library/user-event": "^7.1.2",
     "@toruslabs/torus-embed": "^1.1.0",
     "ethers": "^4.0.45",
+    "patrondai-contracts": "https://github.com/PatronDai/patrondai-contracts",
     "prettier": "^1.19.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "shards-react": "^1.0.3",
+    "sweetalert2": "^9.8.2",
     "unstated-next": "^1.1.0"
   },
   "scripts": {
