@@ -77,30 +77,35 @@ export default function Header({ login, logout }) {
         </span>
         <EthereumContext.Consumer>
           {value =>
-            value.initialized &&
-            (value.loginInProgress ? (
-              <div id="logout" style={{ marginRight: "1vw" }}>
-                Logging in...
-              </div>
-            ) : value.provider ? (
-              <div className="flex-row">
-                <div id="deposit" onClick={deposit}>
-                  Deposit
+            value.initialized ? (
+              value.loginInProgress ? (
+                <div id="logout" style={{ marginRight: "1vw" }}>
+                  Logging in...
                 </div>
-                <img
-                  src="https://dynamic-assets.coinbase.com/90184cca292578d533bb00d9ee98529b889c15126bb120582309286b9129df9886781b30c85c21ee9cae9f2db6dc11e88633c7361fdd1ba5046ea444e101ae15/asset_icons/ebc24b163bf1f58a9732a9a1d2faa5b2141b041d754ddc2260c5e76edfed261e.png"
-                  alt="DAI"
-                />
-                <div id="deposit">{balance}</div>
-                <div id="logout" onClick={logout}>
-                  Logout
+              ) : value.provider ? (
+                <div className="flex-row">
+                  <div id="deposit" onClick={deposit}>
+                    Deposit
+                  </div>
+                  <img
+                    src="https://dynamic-assets.coinbase.com/90184cca292578d533bb00d9ee98529b889c15126bb120582309286b9129df9886781b30c85c21ee9cae9f2db6dc11e88633c7361fdd1ba5046ea444e101ae15/asset_icons/ebc24b163bf1f58a9732a9a1d2faa5b2141b041d754ddc2260c5e76edfed261e.png"
+                    alt="DAI"
+                  />
+                  <div id="deposit">{balance}</div>
+                  <div id="logout" onClick={logout}>
+                    Logout
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div id="login" onClick={login}>
+                  Login
+                </div>
+              )
             ) : (
-              <div id="login" onClick={login}>
-                Login
+              <div id="logout" style={{ marginRight: "1vw" }}>
+                ...
               </div>
-            ))
+            )
           }
         </EthereumContext.Consumer>
       </div>

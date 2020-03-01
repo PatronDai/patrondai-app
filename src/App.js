@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import { Project, Create } from "./components/organisms/Project";
 import HeaderMode from "./contexts/headerMode";
 import EthereumContext from "./contexts/EthereumContext";
+import Welcome from "./components/organisms/Welcome";
 
 export default function App() {
   let ethereum = React.useContext(EthereumContext);
@@ -24,54 +25,16 @@ export default function App() {
                   ? header.mode === "patron"
                     ? Grid
                     : CreatorGrid
-                  : () => (
-                      <div
-                        style={{
-                          width: "100%",
-                          textAlign: "center",
-                          marginTop: "15vh"
-                        }}
-                      >
-                        Log in first!
-                      </div>
-                    )
+                  : Welcome
               }
             />
             <Route
               path="/project/:address"
-              component={
-                value.provider
-                  ? Project
-                  : () => (
-                      <div
-                        style={{
-                          width: "100%",
-                          textAlign: "center",
-                          marginTop: "15vh"
-                        }}
-                      >
-                        Log in first!
-                      </div>
-                    )
-              }
+              component={value.provider ? Project : Welcome}
             />
             <Route
               path="/create"
-              component={
-                value.provider
-                  ? Create
-                  : () => (
-                      <div
-                        style={{
-                          width: "100%",
-                          textAlign: "center",
-                          marginTop: "15vh"
-                        }}
-                      >
-                        Log in first!
-                      </div>
-                    )
-              }
+              component={value.provider ? Create : Welcome}
             />
           </Switch>
         )}
