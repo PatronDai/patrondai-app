@@ -34,16 +34,19 @@ export function Grid() {
           "https://centralization.sucks.af/api/campaign/" + address
         ).then(r => r.json());
         if (info.data) {
+          const contract = new ethers.Contract(
+            address,
+            patronDaiCampaign.abi,
+            ethereum.provider
+          );
+          const _totalF = await contract.getDaiRaised();
           campaigns2 = [
             ...campaigns2,
             {
               address,
-              contract: new ethers.Contract(
-                address,
-                patronDaiCampaign.abi,
-                ethereum.provider
-              ),
-              info: info.data
+              contract,
+              info: info.data,
+              totalFounding: _totalF.toNumber()
             }
           ];
 
@@ -53,7 +56,7 @@ export function Grid() {
     }
     getCampaigns();
   }, [ethereum]);
-  console.log(campaigns);
+
   return (
     <div className="grid-wrapper">
       <h1>Projects</h1>
@@ -92,7 +95,9 @@ export function Grid() {
             </CardBody>
             <CardFooter>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Funded</div>
+                <div>
+                  Funded: {val.info.totalFounding ? val.info.totalFounding : 0}
+                </div>
                 <div>Patrons</div>
               </div>
             </CardFooter>

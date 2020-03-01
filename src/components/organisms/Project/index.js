@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import { Link, useParams } from "react-router-dom";
 import { Card, CardBody, CardFooter, CardImg, CardTitle } from "shards-react";
-import { Add, Check, ChevronRight } from "@material-ui/icons";
+import { Add, Check, Remove } from "@material-ui/icons";
 import { TextField } from "@material-ui/core";
 import EthereumContext from "../../../contexts/EthereumContext";
 import patronDaiCampaign from "patrondai-contracts/build/contracts/PatronDaiCampaign";
 import { ethers, utils } from "ethers";
 import { back } from "../../swal";
+import Swal from "sweetalert2";
 
 export function Create() {
   let ethereum = React.useContext(EthereumContext);
@@ -20,6 +21,7 @@ export function Create() {
     form[e.target.id] = e.target.value;
     console.log(form);
   };
+
   let handleSubmit = async () => {
     console.log("Submit", form);
     let tx = await ethereum.contract.registerCampaign();
@@ -101,6 +103,8 @@ export function Create() {
 
 export function Project() {
   let [campaign, setCampaign] = useState(null);
+  let [totalFounding, setTotalFounding] = useState(0);
+  let [yourFunding, setYourFounding] = useState(0);
   let { address } = useParams();
   let ethereum = React.useContext(EthereumContext);
   useEffect(() => {
@@ -108,18 +112,43 @@ export function Project() {
       let info = await fetch(
         "https://centralization.sucks.af/api/campaign/" + address
       ).then(r => r.json());
+      let contract = new ethers.Contract(
+        address,
+        patronDaiCampaign.abi,
+        ethereum.provider
+      );
       setCampaign({
         address,
-        contract: new ethers.Contract(
-          address,
-          patronDaiCampaign.abi,
-          ethereum.provider
-        ),
+        contract,
         info: info.data
       });
+      const _totalF = await contract.getDaiRaised();
+      setTotalFounding(_totalF.toNumber());
+      const _yourF = await contract.getPatronCollateralBalance(
+        ethereum.addresses[0]
+      );
+      setYourFounding(_yourF.toNumber());
     }
     getCampaigns();
   }, [ethereum]);
+  let stopBacking = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, stop!"
+    }).then(result => {
+      if (result.value) {
+        Swal.fire(
+          "Stopped backing!",
+          "You have stopped backing this project.",
+          "success"
+        );
+      }
+    });
+  };
   return (
     <div
       style={{
@@ -155,11 +184,24 @@ export function Project() {
             </CardBody>
             <CardFooter>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Funded</div>
+                <div>Funded: {totalFounding / Math.pow(10, 18)}</div>
                 <div>Patrons</div>
               </div>
             </CardFooter>
           </Card>
+          <div
+            style={{
+              position: "absolute",
+              right: "5vh",
+              top: "12.5vh",
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "right"
+            }}
+          >
+            <div>Total founding: {totalFounding / Math.pow(10, 18)}</div>
+            <div>You have founded: {yourFunding / Math.pow(10, 18)}</div>
+          </div>
           <div className="back" onClick={back}>
             <Add style={{ height: "5vh", marginLeft: "1vh" }} />
             <span
@@ -171,6 +213,20 @@ export function Project() {
             >
               {" "}
               Back
+            </span>
+          </div>
+          <div className="stop-back" onClick={stopBacking}>
+            <Remove style={{ height: "5vh", marginLeft: "1vh" }} />
+            <span
+              style={{
+                lineHeight: "5vh",
+                marginRight: "4vh",
+                fontWeight: 600,
+                whiteSpace: "nowrap"
+              }}
+            >
+              {" "}
+              Stop Backing
             </span>
           </div>
         </>

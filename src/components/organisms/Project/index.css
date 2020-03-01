@@ -10,3 +10,16 @@
   height: 5vh;
   cursor: pointer;
 }
+
+.stop-back {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 5vh;
+  bottom: 5vh;
+  border-radius: 5vh;
+  background: #fabd3b;
+  width: 20vh;
+  height: 5vh;
+  cursor: pointer;
+}
