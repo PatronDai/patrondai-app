@@ -5,24 +5,13 @@ import logo from "../../../resources/logo.png";
 import EthereumContext from "../../../contexts/EthereumContext";
 import { useHistory } from "react-router-dom";
 
-export default function Header({ money, login }) {
+export default function Header({ money, login, logout }) {
   let header = HeaderMode.useContainer();
+  let ethereum = React.useContext(EthereumContext);
   let history = useHistory();
   let changeMode = e => {
     header.changeMode(e.target.id);
     history.push("/");
-  };
-  let add = e => {
-    console.log("add");
-  };
-  let home = e => {
-    console.log("home");
-  };
-  let topup = e => {
-    console.log("topup");
-  };
-  let withdraw = e => {
-    console.log("withdraw");
   };
 
   return (
@@ -71,7 +60,9 @@ export default function Header({ money, login }) {
                   alt="DAI"
                 />
                 <div id="deposit">{money}</div>
-                <div id="logout">Logout</div>
+                <div id="logout" onClick={logout}>
+                  Logout
+                </div>
               </div>
             ) : (
               <div id="login" onClick={login}>

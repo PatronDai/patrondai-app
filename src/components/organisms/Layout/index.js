@@ -15,12 +15,13 @@ class Layout extends React.Component {
       addresses: [],
       initialized: false,
       loginInProgress: false,
-      provider: null
+      provider: null,
+      torus: null
     };
   }
   async componentDidMount() {
-    this.torus = new Torus();
-    await this.torus.init({
+    this.state.torus = new Torus();
+    await this.state.torus.init({
       showTorusButton: false,
       enableLogging: true,
       network: { host: "rinkeby" }
@@ -28,39 +29,61 @@ class Layout extends React.Component {
     this.setState({ initialized: true });
   }
   render() {
-    const { addresses, initialized, loginInProgress } = this.state;
+    const { addresses, initialized, loginInProgress, torus } = this.state;
     return (
       <div className="App">
         <EthereumContext.Provider value={this.state}>
-          <Header
-            money={9999}
-            login={async () => {
-              try {
-                this.setState({ loginInProgress: true });
-                this.setState({
-                  addresses: await this.torus.login()
-                });
-                const provider = new ethers.providers.Web3Provider(
-                  this.torus.provider
-                ).getSigner(0);
-                const contract = new ethers.Contract(
-                  rinkebyBuild.proxies[
-                    "squirvels-contracts/PatronDaiCampaignsRegistry"
-                  ][0].address,
-                  patronDaiCampaignsRegistry.abi,
-                  provider
-                );
-                window.x = contract;
-                this.setState({
-                  provider,
-                  contract
-                });
-                this.setState({ loginInProgress: false });
-              } catch (error) {
-                console.error(error);
-              }
-            }}
-          />
+          <EthereumContext.Consumer>
+            {value => (
+              <Header
+                money={9999}
+                logout={async () => {
+                  await value.torus.logout();
+                  await value.torus.cleanUp();
+                  value.provider = null;
+                  value.torus = null;
+                  this.setState({ provider: null, torus: null });
+                }}
+                login={async () => {
+                  try {
+                    if (!value.torus) {
+                      this.setState({ initialized: false });
+                      value.torus = new Torus();
+                      await value.torus.init({
+                        showTorusButton: false,
+                        enableLogging: true,
+                        network: { host: "rinkeby" }
+                      });
+                      this.setState({ initialized: true });
+                    }
+                    this.setState({ loginInProgress: true });
+                    this.setState({
+                      addresses: await value.torus.login()
+                    });
+                    const provider = new ethers.providers.Web3Provider(
+                      value.torus.provider
+                    ).getSigner(0);
+                    const contract = new ethers.Contract(
+                      rinkebyBuild.proxies[
+                        "squirvels-contracts/PatronDaiCampaignsRegistry"
+                      ][0].address,
+                      patronDaiCampaignsRegistry.abi,
+                      provider
+                    );
+                    window.x = contract;
+                    this.setState({
+                      provider,
+                      contract
+                    });
+                    this.setState({ loginInProgress: false });
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}
+              />
+            )}
+          </EthereumContext.Consumer>
+
           {this.props.children}
         </EthereumContext.Provider>
       </div>

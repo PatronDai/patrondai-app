@@ -7,6 +7,7 @@ import { TextField } from "@material-ui/core";
 import EthereumContext from "../../../contexts/EthereumContext";
 import patronDaiCampaign from "patrondai-contracts/build/contracts/PatronDaiCampaign";
 import { ethers, utils } from "ethers";
+import { back } from "../../swal";
 
 export function Create() {
   let ethereum = React.useContext(EthereumContext);
@@ -151,16 +152,6 @@ export function Project() {
                     ? campaign.info.description
                     : "No description")}
               </p>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Back</div>
-                <Link to={"/project/" + campaign.address}>More</Link>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <Add />
-                <Link to={"/project/" + campaign.address}>
-                  <ChevronRight />
-                </Link>
-              </div>
             </CardBody>
             <CardFooter>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -169,7 +160,7 @@ export function Project() {
               </div>
             </CardFooter>
           </Card>
-          <div className="back">
+          <div className="back" onClick={back}>
             <Add style={{ height: "5vh", marginLeft: "1vh" }} />
             <span
               style={{

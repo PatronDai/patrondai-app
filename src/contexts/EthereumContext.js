@@ -8,5 +8,6 @@ export default React.createContext({
   addresses: [],
   loginInProgress: false,
   initialized: false,
-  contract: null
+  contract: null,
+  torus: null
 });

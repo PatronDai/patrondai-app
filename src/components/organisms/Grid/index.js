@@ -15,6 +15,7 @@ import {
   Button
 } from "shards-react";
 import { ethers } from "ethers";
+import { back } from "../../swal";
 
 const list = [
   { title: "AAAcd sdccds", id: 999 },
@@ -91,11 +92,11 @@ export function Grid() {
                     : "No description")}
               </p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Back</div>
+                <div onClick={back}>Back</div>
                 <Link to={"/project/" + val.address}>More</Link>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <Add />
+                <Add onClick={back} />
                 <Link to={"/project/" + val.address}>
                   <ChevronRight />
                 </Link>
