@@ -43,7 +43,7 @@ export function Grid() {
       let count =
         ethereum.contract && (await ethereum.contract.getCampaignsCount());
       let campaigns2 = campaigns;
-      for (let i = 0; i < count; i++) {
+      for (let i = count - 1; i >= 0; i--) {
         const address = await ethereum.contract.getCampaign(i);
         let info = await fetch(
           "https://centralization.sucks.af/api/campaign/" + address
@@ -133,7 +133,7 @@ export function CreatorGrid() {
           <Card style={{ maxWidth: "400px" }} key={idx}>
             <CardImg
               src={val.url}
-              style={{ objectFit: "cover", maxHeight: "40vh" }}
+              style={{ objectFit: "cover", height: "200px" }}
             />
             <CardBody>
               <CardTitle>{val.title}</CardTitle>
