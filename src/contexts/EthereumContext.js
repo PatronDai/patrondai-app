@@ -9,5 +9,6 @@ export default React.createContext({
   loginInProgress: false,
   initialized: false,
   contract: null,
-  torus: null
+  torus: null,
+  daiContract: null
 });

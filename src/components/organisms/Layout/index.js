@@ -2,6 +2,8 @@ import React from "react";
 import patronDaiCampaignsRegistry from "patrondai-contracts/build/contracts/PatronDaiCampaignsRegistry";
 import rinkebyBuild from "patrondai-contracts/.openzeppelin/rinkeby";
 
+import IERC20 from "patrondai-contracts/build/contracts/IERC20";
+
 import { ethers } from "ethers";
 import Torus from "@toruslabs/torus-embed";
 
@@ -70,10 +72,15 @@ class Layout extends React.Component {
                       patronDaiCampaignsRegistry.abi,
                       provider
                     );
-                    window.x = contract;
+                    const daiContract = new ethers.Contract(
+                      "0x5592ec0cfb4dbc12d3ab100b257153436a1f0fea",
+                      IERC20.abi,
+                      provider
+                    );
                     this.setState({
                       provider,
-                      contract
+                      contract,
+                      daiContract
                     });
                     this.setState({ loginInProgress: false });
                   } catch (error) {
