@@ -132,7 +132,7 @@ export function CreatorGrid() {
           <Card style={{ maxWidth: "400px" }} key={idx}>
             <CardImg
               src={val.url}
-              style={{ objectFit: "cover", maxHeight: "40vh" }}
+              style={{ objectFit: "cover", height: "200px" }}
             />
             <CardBody>
               <CardTitle>{val.title}</CardTitle>
