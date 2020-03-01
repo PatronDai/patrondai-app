@@ -47,19 +47,22 @@ export function Grid() {
         let info = await fetch(
           "https://centralization.sucks.af/api/campaign/" + address
         ).then(r => r.json());
-        campaigns2 = [
-          ...campaigns2,
-          {
-            address,
-            contract: new ethers.Contract(
+        if (info.data) {
+          campaigns2 = [
+            ...campaigns2,
+            {
               address,
-              patronDaiCampaign.abi,
-              ethereum.provider
-            ),
-            info: info.data
-          }
-        ];
-        setCampaigns([...campaigns2]);
+              contract: new ethers.Contract(
+                address,
+                patronDaiCampaign.abi,
+                ethereum.provider
+              ),
+              info: info.data
+            }
+          ];
+
+          setCampaigns([...campaigns2]);
+        }
       }
     }
     getCampaigns();
@@ -78,7 +81,7 @@ export function Grid() {
                   ? val.info.image
                   : "https://cdn.pixabay.com/photo/2017/10/24/07/12/question-mark-2883630_960_720.jpg")
               }
-              style={{ objectFit: "cover", maxHeight: "40vh" }}
+              style={{ objectFit: "cover", height: "200px" }}
             />
             <CardBody>
               <CardTitle>
