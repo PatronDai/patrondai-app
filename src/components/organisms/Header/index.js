@@ -40,7 +40,7 @@ export default function Header({ login, logout }) {
       userAddress: ethereum.addresses[0],
       variant: "auto"
     })
-      .on("*")
+      .on("*", console.log)
       .show();
   };
 
