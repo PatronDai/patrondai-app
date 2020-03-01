@@ -42,7 +42,7 @@ export function Grid() {
       let count =
         ethereum.contract && (await ethereum.contract.getCampaignsCount());
       let campaigns2 = campaigns;
-      for (let i = 0; i < count; i++) {
+      for (let i = count - 1; i >= 0; i--) {
         const address = await ethereum.contract.getCampaign(i);
         let info = await fetch(
           "https://centralization.sucks.af/api/campaign/" + address
